@@ -24,7 +24,7 @@ extern void playTone(uint8_t, uint16_t);
 #define EIGHT   0b11111111
 #define NINE    0b11011111
 
-/*Verschiedene defines für die Anzeige*/
+/*Verschiedene Defines für die Anzeige*/
 #define RECHTS  PC4
 #define LINKS   PC5
 #define ZEROL   0b01111110
@@ -77,7 +77,7 @@ void Anzeige2(uint16_t timer, uint16_t Sekunden)
         case (1):
             for (uint16_t a = timer; a > 0; a--)
             {
-                for(uint8_t i = 0; i < 51; i++)     //Läuft eine Sekunde
+                for(uint8_t i = 0; i < 51; i++)     //Laeuft eine Sekunde
                 {
                     PORTB = counter[a / 10];
                     PORTB &= ~(1 << 0);
