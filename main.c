@@ -236,7 +236,7 @@ void initTimer(void)
     /*OCR0A enthält den tongebenden vergleichenden Wert*/
 }
 
-/*macht irgendwie brauchbare Töne*/
+/*macht irgendwie brauchbare Toene*/
 void playTone(uint8_t wavelength, uint16_t duration)
 {
     /*lässt OCSR0A nach ja initialisierter Timer-ctc-Funktion den zu erreichenden Wert beinhalten*/
@@ -275,7 +275,7 @@ int main(void)
      Die favoritisierten Werte sollten also mit dem ersten Preset gespeichert werden*/
     Sekunden ? (duration = Preset1.sekundo) : (Preset1.minuto);
     
-    /*Begrüßung*/
+    /*Begrueßung*/
     Hi();
     PORTB = 0xff;
     
