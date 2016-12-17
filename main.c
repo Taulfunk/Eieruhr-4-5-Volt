@@ -154,7 +154,7 @@ ISR(PCINT2_vect)
     /*Countdown starten*/
     else if (bit_is_set(PIND, ENCODERBUTTON))
     {
-        /*Verhindert eine Störung durch Bedienung der Knoepfe waehrend des Kochvorganges*/
+        /*Verhindert eine Stoerung durch Bedienung der Knoepfe waehrend des Kochvorganges*/
         cli();
         
         switch (Sekunden)
@@ -233,13 +233,13 @@ void initTimer(void)
     TCCR0A |= (1 << COM0A0);                /*Togglet OC0A bei Compare Match*/
     TCCR0B |= (1 << CS00) | (1 << CS01) ;    /*clk/64*/
     
-    /*OCR0A enthält den tongebenden vergleichenden Wert*/
+    /*OCR0A enthaelt den tongebenden vergleichenden Wert*/
 }
 
 /*macht irgendwie brauchbare Toene*/
 void playTone(uint8_t wavelength, uint16_t duration)
 {
-    /*lässt OCSR0A nach ja initialisierter Timer-ctc-Funktion den zu erreichenden Wert beinhalten*/
+    /*laesst OCSR0A nach ja initialisierter Timer-ctc-Funktion den zu erreichenden Wert beinhalten*/
     OCR0A = wavelength;
     SPEAKER_DDR |= (1 << Speaker);
     
@@ -262,13 +262,13 @@ int main(void)
     PORTD &= ~(1 << SET);
     PORTD &= ~(1 << PRESET);
     
-    /*Befähigt den Avr zur Wiederaufnahme der voreingestellten Presets nach Reset*/
+    /*Befaehigt den Avr zur Wiederaufnahme der voreingestellten Presets nach Reset*/
     Preset1.minuto = eeprom_read_byte((uint8_t*)46);
     Preset1.sekundo = eeprom_read_byte((uint8_t*)47);
     Preset2.minuto = eeprom_read_byte((uint8_t*)48);
     Preset2.sekundo = eeprom_read_byte((uint8_t*)49);
     
-    /*Überprüfung des Minuten/Sekundeschalters*/
+    /*Ueberpruefung des Minuten/Sekundeschalters*/
     bit_is_set(PIND, SET) ? (Sekunden = 1) : (Sekunden = 0);
     
     /*Initialisiert den Startwert der Uhr.
